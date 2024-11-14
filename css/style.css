@@ -1,0 +1,662 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+}
+
+.main-container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left-frame {
+    flex: 1;
+    background-color: #0077b6;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.left-frame h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.left-frame p {
+    font-size: 1.1em;
+}
+
+.right-frame {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.right-frame h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+}
+
+.form-group select {
+    font-size: 1em;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #005f8a;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    display: none;
+}
+
+.signup-text a {
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* Styles for admin_signup.php */
+.admin-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-signup-container h2 {
+    font-size: 2em;
+    color: #0077b6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-signup-form .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.admin-signup-form .form-group label {
+    font-size: 1em;
+    color: #333;
+}
+
+.admin-signup-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #0077b6;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.admin-signup-form .form-group input::placeholder {
+    color: #888;
+    opacity: 0.7;
+}
+
+button.back-to-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button.back-to-login:hover {
+    background-color: #999;
+}
+
+.error {
+    color: red;
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success {
+    color: #27ae60;
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Styling for Admin Dashboard */
+
+/* Dashboard Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    font-size: 2em;
+    color: #0077b6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Top Actions Section */
+.top-actions {
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 20px;
+}
+
+.button-primary {
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+    background-color: #005f8a;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Room Table */
+.room-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.room-table th, .room-table td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.room-table th {
+    background-color: #0077b6;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.room-table td {
+    color: #333;
+}
+
+/* Room Link */
+.room-link {
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.room-link:hover {
+    text-decoration: underline;
+}
+
+/* No Rooms Message */
+.no-rooms-message {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Bottom Actions Section */
+.bottom-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.button-secondary {
+    padding: 10px 20px;
+    background-color: #b0b0b0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+    background-color: #9a9a9a;
+}
+
+/* Styling for Create Vote Room Page */
+
+/* Page Container */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Title */
+h2 {
+    font-size: 2em;
+    color: #0077b6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #005f8a;
+}
+
+/* Back Button */
+button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #b0b0b0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="button"]:hover {
+    background-color: #9a9a9a;
+}
+
+/* Back Link Styling */
+a {
+    text-decoration: none;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Label Styling */
+label {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Form Input */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Action Buttons Styling */
+.action-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+    background-color: #005f8a;
+}
+
+.button-danger {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e63946;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.button-danger:hover {
+    background-color: #d62828;
+}
+
+.button-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b0b0b0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+    background-color: #9a9a9a;
+}
+
+/* Edit Voter Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+form input[type="text"], form input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005f8a;
+}
+
+.btn-secondary {
+    background-color: #b0b0b0;
+}
+
+.btn-secondary:hover {
+    background-color: #9a9a9a;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling for "Back to Vote Room" */
+.actions .btn {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.actions .btn:hover {
+    background-color: #005f8a;
+    cursor: pointer;
+}
+
+.actions .btn:focus {
+    outline: none;
+}
+
+/* Button Styling for Delete Voter */
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    cursor: pointer;
+}
+
+.btn-danger:focus {
+    outline: none;
+}
+
+/* Button Styling for Back to Voters */
+.btn-secondary {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+.btn-secondary:focus {
+    outline: none;
+}
+
+/* Button Styling for Add New Voter */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+.btn:focus, .btn-secondary:focus {
+    outline: none;
+}
+
+
