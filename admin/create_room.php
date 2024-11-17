@@ -11,6 +11,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 'admin') {
 // Get the admin's ID from the session
 $admin_id = $_SESSION['user_id'];
 
+$error = ""; // Initialize error message
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $room_name = mysqli_real_escape_string($conn, $_POST['room_name']);
     $num_voters = (int)$_POST['num_voters'];
@@ -18,16 +20,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
 
-    // Insert the new vote room with the admin_id
-    $query = "INSERT INTO vote_rooms (room_name, num_voters, num_candidates, start_time, end_time, admin_id) 
-              VALUES ('$room_name', $num_voters, $num_candidates, '$start_time', '$end_time', $admin_id)";
-    
-    if (mysqli_query($conn, $query)) {
-        $room_id = mysqli_insert_id($conn);
-        header("Location: manage_voters.php?room_id=$room_id");
-        exit();
+    // Validate inputs
+    $current_time = date("Y-m-d H:i:s");
+    if ($start_time < $current_time) {
+        $error = "Start time cannot be in the past.";
+    } elseif ($end_time <= $start_time) {
+        $error = "End time must be later than the start time.";
     } else {
-        $error = "Error creating room: " . mysqli_error($conn);
+        // Insert the new vote room
+        $query = "INSERT INTO vote_rooms (room_name, num_voters, num_candidates, start_time, end_time, admin_id) 
+                  VALUES ('$room_name', $num_voters, $num_candidates, '$start_time', '$end_time', $admin_id)";
+        
+        if (mysqli_query($conn, $query)) {
+            $room_id = mysqli_insert_id($conn);
+
+            // Redirect to the voter creation page
+            header("Location: create_voters.php?room_id=$room_id&num_voters=$num_voters");
+            exit();
+        } else {
+            $error = "Error creating room: " . mysqli_error($conn);
+        }
     }
 }
 ?>
@@ -37,11 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <title>Create Vote Room</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <div class="container">
         <h2>Create Vote Room</h2>
-        <?php if (isset($error)) echo "<div class='error'>$error</div>"; ?>
+        <?php if (!empty($error)) echo "<div class='error'>$error</div>"; ?>
         
         <form method="POST">
             <div class="form-group">

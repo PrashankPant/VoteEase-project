@@ -40,3 +40,36 @@ passwordFields.forEach(field => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const startTimeInput = document.querySelector('input[name="start_time"]');
+    const endTimeInput = document.querySelector('input[name="end_time"]');
+    const errorDiv = document.createElement('div');
+    errorDiv.classList.add('error');
+    form.insertBefore(errorDiv, form.firstChild);
+
+    form.addEventListener('submit', function (e) {
+        errorDiv.textContent = ''; // Clear previous errors
+        const now = new Date();
+        const startTime = new Date(startTimeInput.value);
+        const endTime = new Date(endTimeInput.value);
+
+        // Validation
+        if (startTime < now) {
+            e.preventDefault();
+            errorDiv.textContent = 'Start time cannot be in the past.';
+            return;
+        }
+        if (endTime <= now) {
+            e.preventDefault();
+            errorDiv.textContent = 'End time cannot be in the past.';
+            return;
+        }
+        if (startTime >= endTime) {
+            e.preventDefault();
+            errorDiv.textContent = 'End time must be later than start time.';
+            return;
+        }
+    });
+});
