@@ -26,9 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) == 1) {
         $voter = mysqli_fetch_assoc($result);
 
+        // Debugging: Display fetched voter data
+        // echo '<pre>'; print_r($voter); echo '</pre>';
+
         // Check if the voting room is active
         $room_query = "SELECT * FROM vote_rooms WHERE id = {$voter['room_id']} AND NOW() BETWEEN start_time AND end_time";
         $room_result = mysqli_query($conn, $room_query);
+
+        if (!$room_result) {
+            die("Room query failed: " . mysqli_error($conn));
+        }
 
         // Ensure the room is active and verify the password
         if (mysqli_num_rows($room_result) == 1) {

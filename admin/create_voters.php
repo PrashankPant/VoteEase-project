@@ -15,11 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     for ($i = 1; $i <= $num_voters; $i++) {
         $username = mysqli_real_escape_string($conn, $_POST["username_$i"]);
         $password = mysqli_real_escape_string($conn, $_POST["password_$i"]);
+        $hashed_password = password_hash($password,PASSWORD_DEFAULT); // Hashing the password
         $is_candidate = isset($_POST["is_candidate_$i"]) ? 1 : 0;
 
         // Insert voter into the database
         $query = "INSERT INTO voters (username, password, is_candidate, room_id)
-                  VALUES ('$username', '$password', $is_candidate, $room_id)";
+                  VALUES ('$username', '$hashed_password', $is_candidate, $room_id)";
         mysqli_query($conn, $query);
     }
 
