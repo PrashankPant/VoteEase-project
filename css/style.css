@@ -1,728 +1,626 @@
+/* General Reset */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
 body {
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f8ff;
+    color: #333;
 }
 
 .main-container {
     display: flex;
     width: 80%;
-    max-width: 1200px;
-    height: 80vh;
-    border-radius: 10px;
+    max-width: 1000px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .left-frame {
     flex: 1;
-    background-color: #0077b6;
+    background-color: #2a9df4; /* Cryan Blue */
     color: #fff;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
-    text-align: center;
 }
 
 .left-frame h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .left-frame p {
-    font-size: 1.1em;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .right-frame {
     flex: 1;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 40px;
-    position: relative;
 }
 
 .right-frame h2 {
-    font-size: 1.8em;
+    font-size: 2rem;
     margin-bottom: 20px;
-    color: #0077b6;
+    color: #2a9df4; /* Cryan Blue */
 }
 
 .form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-size: 1em;
-    color: #333;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    margin-top: 5px;
-    border: 1px solid #0077b6;
-    border-radius: 5px;
-}
-
-.form-group select {
-    font-size: 1em;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #0077b6;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #005f8a;
-}
-
-.signup-text {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.9em;
-    display: none;
-}
-
-.signup-text a {
-    color: #0077b6;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.signup-text a:hover {
-    text-decoration: underline;
-}
-
-.error {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-}
-
-
-/* Styles for admin_signup.php */
-.admin-signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.admin-signup-container h2 {
-    font-size: 2em;
-    color: #0077b6;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.admin-signup-form .form-group {
-    width: 100%;
     margin-bottom: 15px;
 }
 
-.admin-signup-form .form-group label {
-    font-size: 1em;
-    color: #333;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
 
-.admin-signup-form .form-group input {
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
     width: 100%;
     padding: 10px;
-    font-size: 1em;
-    border: 1px solid #0077b6;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-.admin-signup-form .form-group input::placeholder {
-    color: #888;
-    opacity: 0.7;
+input:focus,
+select:focus {
+    border-color: #2a9df4; /* Cryan Blue */
 }
 
-button.back-to-login {
+button {
     width: 100%;
     padding: 12px;
-    background-color: #ccc;
-    color: #333;
+    background-color: #2a9df4; /* Cryan Blue */
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-button.back-to-login:hover {
-    background-color: #999;
+button:hover {
+    background-color: #237bc2; /* Darker Cryan Blue */
+}
+
+.signup-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.signup-text a {
+    color: #2a9df4; /* Cryan Blue */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.signup-text a:hover {
+    color: #237bc2; /* Darker Cryan Blue */
 }
 
 .error {
-    color: red;
-    font-size: 1em;
-    margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffe6e6;
+    color: #d93025;
+    border: 1px solid #d93025;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
-.success {
-    color: #27ae60;
-    font-size: 1em;
+#room_fields {
     margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
 }
 
-/* Styling for Admin Dashboard */
+/* stylling for admin_signup.php */
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f8fb;
+    color: #333;
+    display: flex; /* To center the form */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height for vertical centering */
+}
 
-/* Dashboard Container */
+/* Admin Signup Container */
+.admin-signup-container {
+    max-width: 420px; /* Slightly increased width */
+    width: 90%; /* Responsive width */
+    padding: 20px; /* Reduced padding for less height */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Header */
+.admin-signup-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2a9df4;
+}
+
+/* Form Styling */
+.admin-signup-form .form-group {
+    margin-bottom: 12px; /* Reduced spacing between fields */
+    text-align: left;
+}
+
+.admin-signup-form .form-group label {
+    display: block;
+    font-size: 0.95em;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.admin-signup-form input {
+    width: calc(100% - 12px); /* Slightly adjusted width */
+    padding: 10px;
+    font-size: 0.95em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.admin-signup-form input:focus {
+    border-color: #2a9df4;
+}
+
+/* Buttons */
+.admin-signup-form .button-container {
+    display: flex; /* Align buttons in a single row */
+    justify-content: space-between;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px; /* Added margin for better layout */
+}
+
+.admin-signup-form button {
+    padding: 12px 20px; /* Adjusted width */
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex: 1; /* Ensures both buttons take equal space */
+}
+
+/* Submit Button */
+.admin-signup-form button[type="submit"] {
+    background-color: #2a9df4;
+    color: #fff;
+}
+
+.admin-signup-form button[type="submit"]:hover {
+    background-color: #217ac1;
+    transform: scale(1.05);
+}
+
+/* Back Button */
+.admin-signup-form .back-to-login {
+    background-color: #e0e0e0; /* Light grey */
+    color: #333;
+}
+
+.admin-signup-form .back-to-login:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);
+}
+
+/* Error Message */
+.error {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    border-radius: 5px;
+}
+
+/* Form Spacing */
+.admin-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Reduced spacing between fields */
+    align-items: stretch; /* Ensure form elements are well-aligned */
+}
+
+
+
+
+
+/*stylling for admin/dashboard.php */
+/* General Reset */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f8fb;
+    color: #333;
+}
+
+/* Container */
 .container {
-    width: 90%;
     max-width: 1200px;
     margin: 40px auto;
-    background-color: #ffffff;
     padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Dashboard Title */
 .dashboard-title {
-    font-size: 2em;
-    color: #0077b6;
     text-align: center;
+    font-size: 2em;
+    color: #2a9df4;
     margin-bottom: 20px;
-}
-
-/* Top Actions Section */
-.top-actions {
-    display: flex;
-    justify-content:flex-start;
-    margin-bottom: 20px;
-}
-
-.button-primary {
-    padding: 10px 20px;
-    background-color: #0077b6;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.button-primary:hover {
-    background-color: #005f8a;
 }
 
 /* Section Title */
 .section-title {
     font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: #555;
 }
 
-/* Room Table */
+/* Table Styling */
 .room-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .room-table th, .room-table td {
-    border: 1px solid #dddddd;
+    border: 1px solid #ccc;
     padding: 12px;
     text-align: left;
+    font-size: 0.95em;
 }
 
 .room-table th {
-    background-color: #0077b6;
-    color: #ffffff;
+    background-color: #f4f4f4;
     font-weight: bold;
-}
-
-.room-table td {
     color: #333;
 }
 
-/* Room Link */
-.room-link {
-    color: #0077b6;
-    text-decoration: none;
-    font-weight: bold;
+.room-table td {
+    background-color: #fff;
 }
 
-.room-link:hover {
+.room-table .room-link {
+    color: #2a9df4;
+    text-decoration: none;
+}
+
+.room-table .room-link:hover {
     text-decoration: underline;
 }
 
 /* No Rooms Message */
 .no-rooms-message {
-    font-size: 1.2em;
-    color: #555;
-    text-align: center;
+    font-size: 1.1em;
+    color: #777;
     margin-top: 20px;
+    text-align: center;
 }
 
-/* Bottom Actions Section */
-.bottom-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+/* Top Actions Styling */
+.top-actions {
+    margin: 20px 0;
+    text-align: center;
 }
 
-.button-secondary {
+.top-actions .button-primary {
+    display: inline-block;
     padding: 10px 20px;
-    background-color: #b0b0b0;
+    background-color: #2a9df4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.top-actions .button-primary:hover {
+    background-color: #217ac1;
+    transform: scale(1.05);
+}
+
+/* Bottom Actions Styling */
+.bottom-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.bottom-actions .button-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
     color: #333;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-size: 1em;
-    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
-.button-secondary:hover {
-    background-color: #9a9a9a;
+.bottom-actions .button-secondary:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);
 }
 
-/* Styling for Create Vote Room Page */
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .dashboard-title {
+        font-size: 1.8em;
+    }
+
+    .room-table th, .room-table td {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .top-actions .button-primary, 
+    .bottom-actions .button-secondary {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
+
+/* Create Vote Room Page Styling */
 
 /* Page Container */
 .container {
-    width: 80%;
-    max-width: 900px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Wider form for consistency with previous layouts */
+    margin: 30px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Page Title */
-h2 {
-    font-size: 2em;
-    color: #0077b6;
+.container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #2a9df4;
+    margin-bottom: 15px; /* Reduced margin to save space */
 }
 
 /* Error Message */
 .error {
-    color: red;
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Reduced margin */
     text-align: center;
-    margin-bottom: 20px;
 }
 
 /* Form Group */
 .form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-size: 1em;
-    color: #333;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    margin-top: 5px;
-    border: 1px solid #0077b6;
-    border-radius: 5px;
-}
-
-/* Submit Button */
-button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #0077b6;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #005f8a;
-}
-
-/* Back Button */
-button[type="button"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #b0b0b0;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-}
-
-button[type="button"]:hover {
-    background-color: #9a9a9a;
-}
-
-/* Back Link Styling */
-a {
-    text-decoration: none;
-}
-
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Label Styling */
-label {
-    margin-bottom: 5px;
-    font-size: 1em;
-    color: #333;
-}
-
-/* Form Input */
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    margin-top: 5px;
-    border: 1px solid #0077b6;
-    border-radius: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 20px;
-    }
-    
-    h2 {
-        font-size: 1.8em;
-    }
-}
-
-/* Action Buttons Styling */
-.action-buttons {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.button-primary {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0077b6;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.button-primary:hover {
-    background-color: #005f8a;
-}
-
-.button-danger {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #e63946;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.button-danger:hover {
-    background-color: #d62828;
-}
-
-.button-secondary {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #b0b0b0;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.button-secondary:hover {
-    background-color: #9a9a9a;
-}
-
-/* Edit Voter Form Styling */
-.form-group {
-    margin-bottom: 15px;
-}
-
-form input[type="text"], form input[type="checkbox"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #0077b6;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #005f8a;
-}
-
-.btn-secondary {
-    background-color: #b0b0b0;
-}
-
-.btn-secondary:hover {
-    background-color: #9a9a9a;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.center {
-    text-align: center;
-}
-
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table th, .table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.table a {
-    color: #0077b6;
-    text-decoration: none;
-}
-
-.table a:hover {
-    text-decoration: underline;
-}
-
-/* Button Styling for "Back to Vote Room" */
-.actions .btn {
-    background-color: #0077b6;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.actions .btn:hover {
-    background-color: #005f8a;
-    cursor: pointer;
-}
-
-.actions .btn:focus {
-    outline: none;
-}
-
-/* Button Styling for Delete Voter */
-.btn-danger {
-    background-color: #e74c3c;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-danger:hover {
-    background-color: #c0392b;
-    cursor: pointer;
-}
-
-.btn-danger:focus {
-    outline: none;
-}
-
-/* Button Styling for Back to Voters */
-.btn-secondary {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-secondary:hover {
-    background-color: #2980b9;
-    cursor: pointer;
-}
-
-.btn-secondary:focus {
-    outline: none;
-}
-
-/* Button Styling for Add New Voter */
-.btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn:hover {
-    background-color: #45a049;
-    cursor: pointer;
-}
-
-.btn-secondary {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-secondary:hover {
-    background-color: #2980b9;
-    cursor: pointer;
-}
-
-.btn:focus, .btn-secondary:focus {
-    outline: none;
-}
-/* Error Message Styling */
-.error {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* Form Styling */
-form {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Reduced spacing between form fields */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    font-size: 1em;
     font-weight: bold;
+    margin-bottom: 5px; /* Reduced label spacing */
+    color: #333;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"] {
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px; /* Adjusted padding for compactness */
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-size: 1em;
     box-sizing: border-box;
 }
 
+/* Form Group: Focus Effect */
+.form-group input:focus {
+    border-color: #2a9df4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(42, 157, 244, 0.5);
+}
+
+/* Buttons */
 button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
+    width: 150px; /* Ensures both buttons are of the same size */
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: #2a9df4;
+    color: #fff;
+    margin-right: 15px; /* Adds space between the buttons */
+}
+
+button[type="submit"]:hover {
+    background-color: #217ac1;
+    transform: scale(1.05);
 }
 
 button[type="button"] {
-    background-color: #6c757d;
+    background-color: #e0e0e0;
+    color: #333;
 }
 
-button:hover {
-    opacity: 0.9;
+button[type="button"]:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);
 }
 
-/* Center Container */
+/* Button Alignment */
+form button {
+    margin-top: 10px; /* Reduced margin to save space */
+    display: inline-block;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .container h2 {
+        font-size: 1.6em;
+    }
+
+    .form-group input {
+        font-size: 0.95em;
+    }
+
+    button {
+        font-size: 0.9em;
+        width: 100%; /* Stacks buttons in smaller screens */
+    }
+
+    button[type="submit"],
+    button[type="button"] {
+        margin-bottom: 10px; /* Adds spacing when buttons stack */
+    }
+}
+
+
+
+/* General container styling */
 .container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
+    max-width: 1200px; /* Adjust width for responsiveness */
+    margin: 20px auto;
     padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Centered header styling */
+.center {
+    text-align: center;
+    font-size: 2em;
+    color: #2a9df4;
+    margin-bottom: 20px;
+}
+
+/* Action buttons container */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Buttons shared styling */
+.action-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+/* Primary button styling */
+.button-primary {
+    background-color: #2a9df4;
+    color: #ffffff;
+    border: none;
+}
+
+.button-primary:hover {
+    background-color: #1e7bc6;
+    transform: scale(1.05);
+}
+
+/* Danger button styling */
+.button-danger {
+    background-color: #f44336;
+    color: #ffffff;
+    border: none;
+}
+
+.button-danger:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Secondary button styling */
+.button-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .action-buttons a {
+        width: 100%; /* Full width on smaller screens */
+        text-align: center;
+    }
+}
+
+
+
+
 
 
 

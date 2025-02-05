@@ -22,7 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate inputs
     $current_time = date("Y-m-d H:i:s");
-    if ($start_time < $current_time) {
+    if ($num_candidates < 2) {
+        $error = "You must have at least 2 candidates.";
+    } elseif ($num_voters <= 2) {
+        $error = "The number of voters must be greater than 2.";
+    } elseif ($start_time < $current_time) {
         $error = "Start time cannot be in the past.";
     } elseif ($end_time <= $start_time) {
         $error = "End time must be later than the start time.";
@@ -64,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <div class="form-group">
                 <label>Number of Voters:</label>
-                <input type="number" name="num_voters" min="2" required>
+                <input type="number" name="num_voters" min="3" required>
             </div>
             
             <div class="form-group">

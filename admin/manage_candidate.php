@@ -18,7 +18,7 @@ $candidate_result = mysqli_query($conn, $candidate_query);
 <html>
 <head>
     <title>Manage Candidates</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_manage_candidate.css">
 </head>
 <body>
     <div class="container">

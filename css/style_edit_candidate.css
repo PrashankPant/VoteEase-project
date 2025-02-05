@@ -1,0 +1,155 @@
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px 30px; /* Increased padding for height */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading Styling */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+    min-height: 400px; /* Increased form height */
+    justify-content: center; /* Center items vertically */
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 5px;
+}
+
+/* Button Styling */
+button, .btn-secondary {
+    display: inline-block;
+    width: 90%; /* Consistent button width */
+    max-width: 180px; /* Uniform button size */
+    padding: 10px 0; /* Button padding */
+    font-size: 15px; /* Font size */
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 0; /* No zigzag pattern */
+}
+
+/* Add vertical spacing between buttons */
+button + button, 
+button + .btn-secondary, 
+.btn-secondary + button {
+    margin-top: 15px; /* Vertical space between buttons */
+}
+
+/* Save Changes Button */
+.btn {
+    
+    padding: 12px , 20px;
+    background-color: #2a9df4; /* Cryan Blue */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 180 px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.btn:hover {
+    background-color: #237bc2; 
+    transform: scale(1.05);/* Slightly darker blue on hover */
+}
+
+/* Delete Button */
+.btn-danger {
+    background-color: #d8000c; /* Milder red */
+    color:#ffdddd;
+    border: none;
+    padding: 12px 20px; /* Slightly smaller padding */
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    width: auto;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.btn-danger:hover {
+    background-color: #d8000c; /* Slightly darker red on hover */
+    transform: scale(1.05);/* Slightly darker grey on hover */
+}
+
+
+/* Back Button */
+.btn-secondary {
+    background-color: #e0e0e0; /* Light grey */
+    color: #333;
+    border: none;
+    padding: 12px 20px; /* Slightly smaller padding */
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    width: auto; /* Make the button width fit content */
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.btn-secondary:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);/* Slightly darker grey on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    button, .btn-secondary {
+        width: 100%; /* Full width for smaller screens */
+    }
+}

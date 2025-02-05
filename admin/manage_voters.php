@@ -18,7 +18,7 @@ $voter_result = mysqli_query($conn, $voter_query);
 <html>
 <head>
     <title>Manage Voters</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_manage_voter.css">
 </head>
 <body>
     <div class="container">
@@ -47,7 +47,7 @@ $voter_result = mysqli_query($conn, $voter_query);
 
         <!-- Back to Vote Room Button -->
         <div class="actions">
-            <a href="vote_room.php?room_id=<?php echo $room_id; ?>"><button class="btn">Back to Vote Room</button></a>
+            <a href="vote_room.php?room_id=<?php echo $room_id; ?>"><button class="btn-voter">Back to Vote Room</button></a>
         </div>
     </div>
 </body>

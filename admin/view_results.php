@@ -18,16 +18,24 @@ $result_query = "SELECT v.username, COUNT(vt.id) AS total_votes
                  GROUP BY v.id";
 $result_result = mysqli_query($conn, $result_query);
 
-// Calculate the winner by finding the candidate with the highest votes
-$winner_name = "";
+// Calculate the winner(s)
+$candidates = [];
 $max_votes = 0;
 
 while ($row = mysqli_fetch_assoc($result_result)) {
+    $candidates[] = $row; // Store each candidate's data
     if ($row['total_votes'] > $max_votes) {
         $max_votes = $row['total_votes'];
-        $winner_name = $row['username'];
     }
 }
+
+// Find all candidates with the maximum votes
+$winners = array_filter($candidates, function ($candidate) use ($max_votes) {
+    return $candidate['total_votes'] == $max_votes;
+});
+
+// Determine if there is a draw
+$is_draw = count($winners) > 1;
 
 // Fetch if the results are already published
 $publish_query = "SELECT is_published FROM vote_rooms WHERE id = $room_id";
@@ -51,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['publish_vote'])) {
 <html>
 <head>
     <title>View Result</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_view_results.css">
 </head>
 <body>
     <?php if (!empty($message)): ?>
@@ -69,19 +77,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['publish_vote'])) {
                 <th>Username</th>
                 <th>Vote Count</th>
             </tr>
-            <?php
-            // Reset result pointer and iterate again to display results
-            mysqli_data_seek($result_result, 0);
-            while ($candidate = mysqli_fetch_assoc($result_result)): ?>
+            <?php foreach ($candidates as $candidate): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($candidate['username']); ?></td>
                     <td><?php echo $candidate['total_votes']; ?></td>
                 </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </table>
 
-        <!-- Display Winner -->
-        <h3 class="center">Winner: <?php echo htmlspecialchars($winner_name); ?></h3>
+        <!-- Display Result -->
+        <?php if ($is_draw): ?>
+            <h3 class="center">Result: Draw</h3>
+            <p class="center">Candidates tied with <?php echo $max_votes; ?> votes:</p>
+            <ul class="center">
+                <?php foreach ($winners as $winner): ?>
+                    <li><?php echo htmlspecialchars($winner['username']); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <h3 class="center">Winner: <?php echo htmlspecialchars($winners[0]['username']); ?></h3>
+            <p class="center">Votes: <?php echo $max_votes; ?></p>
+        <?php endif; ?>
 
         <!-- Publish Vote Button (Only show if not already published) -->
         <?php if (!$is_published): ?>

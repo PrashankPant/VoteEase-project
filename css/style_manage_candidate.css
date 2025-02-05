@@ -1,0 +1,109 @@
+/* General container styling */
+.container {
+    max-width: 600px; /* Reduced the width of the container */
+    margin: 20px auto; /* Centers the container horizontally */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darkened the shadow */
+    display: flex;
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Ensures content is centered horizontally */
+    align-items: center; /* Ensures content is centered vertically */
+    height: auto; /* Adjusted height to be based on content */
+}
+
+/* Centered header styling */
+.center {
+    text-align: center;
+    font-size: 1.8em; /* Slightly smaller font size */
+    color: #2a9df4;
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+/* Table styling */
+.table {
+    width: 100%; /* Table width to fit the container */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 10px 15px; /* Reduced padding for a more compact table */
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #2a9df4;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table td {
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Links inside the table */
+.table .link {
+    color: #2a9df4;
+    text-decoration: none;
+}
+
+.table .link:hover {
+    text-decoration: underline;
+}
+
+/* Action button styling */
+.actions {
+    width: 100%; /* Button width consistent with the form */
+    text-align: center;
+    margin: 20px 0; /* Added some spacing */
+}
+
+.btn {
+    background-color: #e0e0e0; /* Light grey */
+    color: #333;
+    border: none;
+    padding: 12px 20px; /* Slightly smaller padding */
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    width: auto; /* Make the button width fit content */
+}
+
+.btn:hover {
+    background-color: #d6d6d6;
+    transform: scale(1.05);
+}
+
+
+
+
+/* "Back to Voter" button with light grey color */
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .table th, .table td {
+        padding: 8px 10px;
+    }
+
+    .btn {
+        width: 100%; /* Full-width buttons on smaller screens */
+        margin-bottom: 10px;
+    }
+}

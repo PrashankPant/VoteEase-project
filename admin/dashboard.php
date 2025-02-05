@@ -24,21 +24,24 @@ $rooms_result = mysqli_query($conn, $rooms_query);
         <!-- Dashboard Title -->
         <h2 class="dashboard-title">Admin Dashboard</h2>
 
-        <!-- Create Vote Room Button at the Top -->
-        
-        
         <!-- Existing Vote Rooms -->
         <?php if (mysqli_num_rows($rooms_result) > 0): ?>
             <h3 class="section-title">Existing Vote Rooms</h3>
             <table class="room-table">
                 <tr>
+                    <th>Room ID</th>
                     <th>Room Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                 </tr>
                 <?php while ($room = mysqli_fetch_assoc($rooms_result)): ?>
                     <tr>
-                        <td><a href="vote_room.php?room_id=<?php echo $room['id']; ?>" class="room-link"><?php echo htmlspecialchars($room['room_name']); ?></a></td>
+                        <td><?php echo htmlspecialchars($room['id']); ?></td>
+                        <td>
+                            <a href="vote_room.php?room_id=<?php echo $room['id']; ?>" class="room-link">
+                                <?php echo htmlspecialchars($room['room_name']); ?>
+                            </a>
+                        </td>
                         <td><?php echo htmlspecialchars($room['start_time']); ?></td>
                         <td><?php echo htmlspecialchars($room['end_time']); ?></td>
                     </tr>
